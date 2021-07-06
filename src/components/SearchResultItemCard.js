@@ -1,28 +1,61 @@
 import React from "react";
-import { Box, Image, Flex, Text } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
+import PropTypes from "prop-types";
+import PodcastImage from "./PodcastImage";
 
-export default function SearchResultItemCard() {
+SearchResultItemCard.propTypes = {
+  podcast: PropTypes.any,
+};
+
+export default function SearchResultItemCard({ podcast }) {
+  // If there are more than one category, just concatenate them with comma
+  const category = podcast.categories
+    ?.map((category) => category.name)
+    .join(", ");
+
+  // since experts is array, there can be more than 1 expert.
+  // but in this can we can just take the first expert
+  const expert = podcast.experts?.length > 0 ? podcast.experts[0] : null;
+
   return (
-    <Box borderRadius="lg" my="4" overflow="hidden" borderWidth="1px">
-      <Image src="https://bit.ly/2k1H1t6" />
+    <Box
+      border="none"
+      as="article"
+      borderRadius="lg"
+      my="4"
+      overflow="hidden"
+      borderWidth="1px"
+    >
+      {/* <Image src="https://bit.ly/2k1H1t6" /> */}
+      <PodcastImage src={podcast.image?.uri} />
       <Box p="3" bg="white">
-        <Flex align="baseline" mt={2}>
-          <Text
-            textTransform="uppercase"
-            fontSize="sm"
-            fontWeight="semibold"
-            color="brand.secondary"
-          >
-            Widen My World
-          </Text>
-        </Flex>
-        <Text mt={2} fontSize="xl" fontWeight="semibold" lineHeight="short">
-          Mindsets to Lead Business Transformation
+        <Text
+          as="strong"
+          textTransform="uppercase"
+          fontSize="sm"
+          fontWeight="semibold"
+          lineHeight="4"
+          color="brand.secondary"
+        >
+          {category}
         </Text>
-        <Text mt={1}>Pierre Robinet</Text>
-        <Text>MD, SEA</Text>
+        <Text mt={2} fontSize="md" fontWeight="bold" lineHeight="short">
+          {podcast.name}
+        </Text>
+        <Text
+          fontWeight="bold"
+          mt={1}
+        >{`${expert.firstName} ${expert.lastName}`}</Text>
+        <Text
+          fontSize="xs"
+          textTransform="uppercase"
+          color="black"
+          fontWeight="semibold"
+        >
+          {expert.title}
+        </Text>
         <Text color="brand.secondary" fontSize="sm" fontWeight="semibold">
-          Ogilvy Consulting
+          {expert.company}
         </Text>
       </Box>
     </Box>
