@@ -1,10 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BRAND_COLORS } from "./constants/brand";
+import "@fontsource/poppins/200.css";
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/500.css";
+import "@fontsource/poppins/600.css";
+import "@fontsource/poppins/700.css";
+import "@fontsource/poppins/800.css";
+import "@fontsource/poppins/900.css";
 
 const theme = extendTheme(BRAND_COLORS);
 
