@@ -1,10 +1,10 @@
-# Getting Started with Create React App
+# Tigerhall Content Search
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Go to project directory and
 
-In the project directory, you can run:
+You can run:
 
 ### `npm start`
 

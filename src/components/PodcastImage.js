@@ -14,5 +14,7 @@ export default function PodcastImage({ src }) {
   const splittedUrl = src.split(IMAGE_URL);
   const correctedPath = `${IMAGE_URL}/resize/${IMAGE_SIZE}${splittedUrl[1]}`;
 
+  // TODO: Add image loading skeleton while the image loads
+
   return <Image src={correctedPath} />;
 }
