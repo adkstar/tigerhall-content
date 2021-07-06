@@ -19,4 +19,8 @@ export const BRAND_COLORS = {
       gray: "#989898",
     },
   },
+  fonts: {
+    heading: "Poppins",
+    body: "Poppins",
+  },
 };
